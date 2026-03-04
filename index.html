@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Scratchpad</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Scratchpad</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="login">
-<h2>Access</h2>
-<input type="password" id="pass" placeholder="Password">
-<input type="password" id="token" placeholder="GitHub Token">
-<button onclick="unlock()">Enter</button>
-</div>
-<div id="app" style="display:none">
-<h2>Scratchpad</h2>
-<textarea id="text"></textarea>
-<button onclick="saveText()">Save Text</button>
-<hr>
-<input type="file" id="fileInput">
-<button onclick="uploadFile()">Upload File</button>
-<hr>
-<button onclick="loadFiles()">Refresh Files</button>
-<ul id="files"></ul>
-</div>
-<script src="app.js"></script>
+  <h1>Scratchpad</h1>
+
+  <div id="auth">
+    <label>GitHub Token: <input type="password" id="token"></label>
+    <button onclick="saveToken()">Save Token</button>
+    <span id="tokenStatus"></span>
+  </div>
+
+  <section id="notesSection">
+    <h2>Notes</h2>
+    <textarea id="noteText" placeholder="Write a note..."></textarea>
+    <button onclick="saveNote()">Save Note</button>
+    <ul id="noteList"></ul>
+    <div id="noteView"></div>
+  </section>
+
+  <section id="filesSection">
+    <h2>Files</h2>
+    <input type="file" id="fileInput" multiple>
+    <button onclick="uploadFiles()">Upload Files</button>
+    <div id="dropZone">Drag and drop files here</div>
+    <ul id="fileList"></ul>
+  </section>
+
+  <script src="main.js"></script>
 </body>
 </html>
