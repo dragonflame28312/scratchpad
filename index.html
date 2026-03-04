@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Scratchpad</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Scratchpad</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Scratchpad</h1>
-
-  <div id="auth">
-    <label>GitHub Token: <input type="password" id="token"></label>
-    <button onclick="saveToken()">Save Token</button>
-    <span id="tokenStatus"></span>
-  </div>
-
-  <section id="notesSection">
-    <h2>Notes</h2>
-    <textarea id="noteText" placeholder="Write a note..."></textarea>
-    <button onclick="saveNote()">Save Note</button>
+<div id="container">
+  <div id="sidebar">
+    <h2>Workspaces</h2>
+    <button id="newWorkspaceBtn">+ New Workspace</button>
+    <ul id="workspaceList"></ul>
+    <hr>
+    <h3 id="notesHeading">Notes</h3>
+    <button id="newNoteBtn">+ New Note</button>
     <ul id="noteList"></ul>
-    <div id="noteView"></div>
-  </section>
-
-  <section id="filesSection">
-    <h2>Files</h2>
-    <input type="file" id="fileInput" multiple>
-    <button onclick="uploadFiles()">Upload Files</button>
-    <div id="dropZone">Drag and drop files here</div>
-    <ul id="fileList"></ul>
-  </section>
-
-  <script src="main.js"></script>
+    <hr>
+    <button id="exportBtn">Export Data</button>
+    <button id="importBtn">Import Data</button>
+    <input type="file" id="importInput" style="display:none" accept="application/json">
+  </div>
+  <div id="main">
+    <div id="noteHeader">
+      <h2 id="currentNoteName">Select a note</h2>
+    </div>
+    <textarea id="noteContent" placeholder="Start typing..." disabled></textarea>
+    <button id="saveNoteBtn">Save</button>
+  </div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
